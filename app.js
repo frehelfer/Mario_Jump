@@ -38,10 +38,6 @@ const loop = setInterval(() => {
         mario.style.width = '70px';
         mario.style.marginLeft = '55px';
 
-        if (pipePosition === 0) {
-            score += 1;
-        }
-
         playerScore.textContent = score;
         gameOver.classList.remove('hidden');
 
@@ -54,6 +50,11 @@ function restart() {
     window.location.reload(false)
     gameOver.classList.add('hidden');
 };
+
+const scoreCount = setInterval(() => {
+    score += 1;
+
+}, 1200)
 
 document.addEventListener('keydown', jump);
 restartBtn.addEventListener('click', restart);
